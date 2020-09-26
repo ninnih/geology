@@ -15,11 +15,11 @@ app.use(cors({
 app.use(bodyParser.json());
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-});
+// app.get('/', (req, res) => {
+//     res.send('Hello World!')
+// });
 
-// app.use(express.static(path.resolve('./client/build')))
+app.use(express.static(path.resolve('./client/build')))
 
 
 app.get('/api/minerals', (req, res) => {
@@ -41,6 +41,6 @@ app.get('/api/minerals', (req, res) => {
 //   .catch(error => console.log(error))
 // })
 
-// app.get('*', (req, res) => res.sendFile(path.resolve('client/build/index.html')));
+app.get('*', (req, res) => res.sendFile(path.resolve('client/build/index.html')));
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))

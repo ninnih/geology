@@ -5,6 +5,7 @@ import { getMinerals } from './js/actions/index';
 
 function App() {
   const minerals = useSelector(state => state);
+  console.log(minerals)
   const dispatch = useDispatch();
   
   const fetchMinerals = async () => {
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <section>
-      <h2>hello</h2>
+      {minerals.map((mineral, index) => { return (<article key={index}>{mineral.mineral}</article>)})}
     </section>
   );
 }
