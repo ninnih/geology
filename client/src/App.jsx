@@ -1,27 +1,28 @@
 import React, { useEffect } from 'react';
-import './App.scss';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { getMinerals } from './js/actions/index';
 
-function App() {
-  const minerals = useSelector(state => state);
-  console.log(minerals)
+import './App.scss';
+import Header from './components/Header/Header';
+import Routes from './modules/Routes/Routes';
+
+const App = () => {
   const dispatch = useDispatch();
-  
-  const fetchMinerals = async () => {
-    await fetch('http://localhost:8000/api/minerals')
-      .then(res => res.json())
-      .then(data => dispatch(getMinerals(data)))
-  }
 
   useEffect(() => {
+    const fetchMinerals = async () => {
+      await fetch('http://localhost:8000/api/minerals')
+        .then(res => res.json())
+        .then(data => dispatch(getMinerals(data)))
+    }
     fetchMinerals()
-  }, [])
+  }, [dispatch])
 
   return (
-    <section>
-      {minerals.map((mineral, index) => { return (<article key={index}>{mineral.mineral}</article>)})}
-    </section>
+    <>
+      <Header />
+      <Routes />
+    </>
   );
 }
 

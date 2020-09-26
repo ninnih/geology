@@ -1,0 +1,36 @@
+@import "../../variables.scss";
+
+.slider {
+  position: relative;
+  margin-top: 60px;
+  height: 70vh;
+  width: 100%;
+  background-color: green;
+
+  &__header {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 50;
+  }
+}
+
+.react-slideshow-container {
+  .default-nav {
+    display: none;
+  } 
+}
+.each-slide > article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 70vh;
+}
+
+.each-slide span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}

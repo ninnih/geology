@@ -1,0 +1,30 @@
+@import "./variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: $header;
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+h2 {
+  font-family: $header;
+  font-size: 2rem;
+}
+
+h3 {
+  font-family: $subheader;
+  font-size: 1.5rem;
+}
+
+p {
+  font-family: $paragraph;
+  font-size: 16px;
+}
+
