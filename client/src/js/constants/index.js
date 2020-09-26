@@ -1,0 +1,1 @@
+export const GET_MINERALS = 'GET_MINERALS';

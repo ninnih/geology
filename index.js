@@ -8,7 +8,10 @@ const app = express();
 const apiPort = process.env.PORT || 8000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin: true,
+  credentials: true,
+}))
 app.use(bodyParser.json());
 
 
@@ -16,18 +19,28 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 });
 
-app.use(express.static(path.resolve('./client/build')))
+// app.use(express.static(path.resolve('./client/build')))
 
 
-// app.get('/api/data', (req, res) => {
-//     fetch('https://ninnih-portfolio.herokuapp.com/api/projects')
-//     .then(res => res.json())
-//     .then(data => { 
-//         res.status(200).send(data.data)
-//     })
+app.get('/api/minerals', (req, res) => {
+    fetch('https://macrostrat.org/api/v2/defs/minerals?all')
+    .then(res => res.json())
+    .then(data => { 
+      res.status(200).send(data.success.data)
+    })
+    .catch(error => console.log(error))
+})
+
+// app.get('/api/minerals/:mineral', (req, res) => {
+//   const type = ;
+//   fetch(`https://macrostrat.org/api/defs/minerals?mineral_type=${type}`)
+//   .then(res => res.json())
+//   .then(data => { 
+//     res.status(200).send(data.success.data)
+//   })
+//   .catch(error => console.log(error))
 // })
 
-
-app.get('*', (req, res) => res.sendFile(path.resolve('client/build/index.html')));
+// app.get('*', (req, res) => res.sendFile(path.resolve('client/build/index.html')));
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
