@@ -5,8 +5,9 @@
   margin-top: 60px;
   height: 70vh;
   width: 100%;
-  background-color: green;
-
+  background: rgb(32,178,170);
+  background: linear-gradient(69deg, rgba(32,178,170,1) 6%, rgba(45,253,173,1) 23%, rgba(32,178,170,1) 42%, rgba(32,178,170,1) 67%, rgba(45,253,173,1) 100%, rgba(158,253,45,1) 100%);  
+  
   &__header {
     position: absolute;
     top: 15px;

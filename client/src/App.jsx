@@ -5,6 +5,7 @@ import { getMinerals } from './js/actions/index';
 import './App.scss';
 import Header from './components/Header/Header';
 import Routes from './modules/Routes/Routes';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const App = () => {
     <>
       <Header />
       <Routes />
+      <Footer />
     </>
   );
 }

@@ -1,2 +1,24 @@
 @import "../../variables.scss";
 
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.information {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__item {
+    width: calc(100% / 4);
+    height: 300px;
+    padding: 20px;
+    margin: 10px;
+    text-align: justify;
+    border: 2px solid $white;
+    border-radius: 15px;
+  }
+}
