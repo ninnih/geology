@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Slider from '../../components/Slider/Slider';
 import { Pagination } from "@material-ui/lab";
 import usePagination from "../Pagination";
 import './Search.scss';
@@ -34,7 +33,6 @@ const Search = () => {
               variant="outlined"
               shape="rounded"
               onChange={handleChange}
-              color="#fff"
             />
           </section>
         <section className="searchresults">
@@ -79,7 +77,6 @@ const Search = () => {
               variant="outlined"
               shape="rounded"
               onChange={handleChange}
-              color="#fff"
             />
           </section>
         </section>
