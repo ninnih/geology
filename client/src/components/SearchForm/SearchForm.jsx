@@ -14,12 +14,12 @@ import { filterMinerals } from '../../js/actions';
 const SearchForm = () => {
   const dispatch = useDispatch();
   const [formValue, setFormValue] = useState({
-    mineral: '',
-    mineral_type: '',
-    mineral_colour: [],
-    crystal_form: '',
-    lustre: '',
-    hardness: ''
+    // mineral: '',
+    // mineral_type: '',
+    // mineral_colour: [],
+    // crystal_form: '',
+    // lustre: '',
+    // hardness: ''
   })
 
   const colourOptions = [

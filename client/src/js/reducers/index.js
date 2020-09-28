@@ -17,17 +17,21 @@ const payload = action.payload;
 				}
 
 		case FILTER_MINERALS:
-			// Rewrite this to be dynamic  
+			console.log(payload)
+			const filtered = state.all.filter(mineral => {
+				for (let key in payload) {
+					if(mineral[key] === undefined || mineral[key] != payload[key]) {
+						return false
+					} 
+				}
+				return mineral
+			})
+
 			return {
 				...state,
-				results: state.all.filter(mineral => { 
-					if(mineral.mineral_type === payload.mineral_type.toLowerCase() &&
-						 mineral.crystal_form !== null && mineral.crystal_form === payload.crystal_form && 
-						 mineral.mineral_color !== null && mineral.mineral_color.includes(payload.mineral_colour.map(colour => colour))) {
-						return mineral
-					}
-				 })
+				results: filtered
 			}
+
 	
     default:
 			return state;

@@ -42,16 +42,16 @@ export const mineralLustre = [
 
 export const mineralType = [
   '',
-  'Amphibole',
-  'Nesosilicate',
-  'Clinopyroxene',
-  'Feldspar',
-  'Chlorite',
-  'Element',
-  'Cyclosilicate',
-  'Zeolite',
-  'Serpentine',
-  'Garnet',
-  'Phyllosilicate',
-  'Carbonate'
+  'amphibole',
+  'nesosilicate',
+  'clinopyroxene',
+  'feldspar',
+  'chlorite',
+  'element',
+  'cyclosilicate',
+  'zeolite',
+  'serpentine',
+  'garnet',
+  'phyllosilicate',
+  'carbonate'
 ]
