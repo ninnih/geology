@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Pagination } from "@material-ui/lab";
 import usePagination from "../Pagination";
 import './Search.scss';
+import filterfunction from '../../components/SearchForm/SearchForm'
 
 import mineralIMG from '../../assets/images/minerals/grant-durr-j7WBHTOIyBA-unsplash.jpg'
 import SearchForm from '../../components/SearchForm/SearchForm';
 
 const Search = () => {
-  const minerals = useSelector(state => state);
+  let minerals = useSelector(state => state.results);
+  let loading = false;
+  if(minerals === undefined) {
+    minerals = ['']
+    loading = true;
+  } else {
+    loading = false
+  }
 
   let [page, setPage] = useState(1);
   const PER_PAGE = 12;
@@ -35,7 +43,10 @@ const Search = () => {
               onChange={handleChange}
             />
           </section>
-        <section className="searchresults">
+          { loading ? 
+          <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          : 
+          <section className="searchresults">
           {_DATA.currentData().map((mineral, index) => { 
             return (
               <article key={index} className="searchresults__item">
@@ -45,7 +56,7 @@ const Search = () => {
                   <img src={mineralIMG} alt=""/>
                 </section>
                 <section className="searchresults__item__info">
-                 <article>
+                  <article>
                     <h4>Mineral type:</h4>
                     {mineral.mineral_type ? <p>{mineral.mineral_type}</p> : <p className="searchresults__item__info__undefined">undefined</p>}
                   </article>
@@ -80,6 +91,8 @@ const Search = () => {
             />
           </section>
         </section>
+        }
+
       </section>
     </main>
   )

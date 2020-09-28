@@ -17,7 +17,7 @@ const App = () => {
         .then(data => dispatch(getMinerals(data)))
     }
     fetchMinerals()
-  }, [dispatch])
+  }, [])
 
   return (
     <>

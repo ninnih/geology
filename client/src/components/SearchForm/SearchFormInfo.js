@@ -1,4 +1,5 @@
 export const crystalForm = [
+  '',
   'Trigonal',
   'Tetragonal',
   'Triclinic',
@@ -10,6 +11,7 @@ export const crystalForm = [
 ]
 
 export const crystalColour = [
+  '',
   'Colourless',
   'Yellow',
   'Pink',
@@ -24,6 +26,7 @@ export const crystalColour = [
 ]
 
 export const mineralLustre = [
+  '',
   'Metallic',
   'Greasy',
   'Resinous',
@@ -38,6 +41,7 @@ export const mineralLustre = [
 ]
 
 export const mineralType = [
+  '',
   'Amphibole',
   'Nesosilicate',
   'Clinopyroxene',

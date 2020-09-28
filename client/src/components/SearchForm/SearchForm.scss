@@ -1,1 +1,65 @@
 @import "../../variables.scss";
+
+.searchheader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 250px;
+  margin-top: 60px;
+  padding: 10px;
+  background: rgb(32,178,170);
+  background: linear-gradient(69deg, rgba(32,178,170,1) 6%, rgba(45,253,173,1) 23%, rgba(32,178,170,1) 42%, rgba(32,178,170,1) 67%, rgba(45,253,173,1) 100%, rgba(158,253,45,1) 100%);  
+}
+
+.form {
+  &__wrapper {
+    width: 40%;
+    margin: 0 auto;
+  }
+}
+
+.searchform {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  &__input {
+    width: calc(50% - 10px);
+    display: flex;
+    flex-direction: column;
+
+    &--center {
+      width: 100%;
+      text-align: center;
+      margin: 10px auto;
+    }
+
+    &--button {
+      width: 50%;
+      margin: 10px auto;
+
+      button {
+        height: 38px;
+        padding: 5px 15px;
+        background-color: grey;
+        border: none;
+        border-radius: 4px;
+      }
+    }
+
+    input {
+      height: 38px;
+      border: none;
+      border-radius: 3px;
+    }
+    
+    select {
+      height: 38px;
+      border: none;
+      border-radius: 3px;
+    }
+  }
+}
+
