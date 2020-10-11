@@ -4,6 +4,8 @@ import { Pagination } from "@material-ui/lab";
 import usePagination from "../Pagination";
 import './Search.scss';
 import filterfunction from '../../components/SearchForm/SearchForm'
+import Fade from 'react-reveal/Fade';
+
 
 import mineralIMG from '../../assets/images/minerals/grant-durr-j7WBHTOIyBA-unsplash.jpg'
 import SearchForm from '../../components/SearchForm/SearchForm';
@@ -49,7 +51,7 @@ const Search = () => {
           <section className="searchresults">
           {_DATA.currentData().map((mineral, index) => { 
             return (
-              <article key={index} className="searchresults__item">
+              <Fade up><article key={index} className="searchresults__item">
                 <h3>{mineral.mineral}</h3>
                 <p dangerouslySetInnerHTML={{ __html: mineral.formula_tags }} className="searchresults__item--right"/>
                 <section className="searchresults__item__img">
@@ -78,6 +80,7 @@ const Search = () => {
                   </article>
                 </section>
               </article>
+              </Fade>
               )}
             )}
           <section className="pagination">

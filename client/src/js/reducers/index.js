@@ -18,8 +18,6 @@ console.log(payload)
 				}
 
 		case FILTER_MINERALS:
-			// Rewrite this to be dynamic  
-			console.log('payload:', payload)
 				const mineralTypeFilter = state.all.filter(mineral => {
 					if(payload.mineral_type === '') {
 						return mineral
@@ -27,7 +25,6 @@ console.log(payload)
 						return mineral
 					}
 				});
-				console.log(mineralTypeFilter)
 
 				const crystalFormFilter = mineralTypeFilter.filter(mineral => {
 					if(payload.crystal_form === '') {
@@ -36,33 +33,27 @@ console.log(payload)
 						return mineral
 					}
 				})
-				console.log('CrystalFilter:', crystalFormFilter)
 
 				const mineralColourFilter = crystalFormFilter.filter(mineral => {
-					console.log(mineral)
 					if(payload.mineral_color.length === 0) {
 						return mineral
 					} else if(mineral.mineral_color !== null && mineral.mineral_color.includes(payload.mineral_color.map(colour => colour))) {
 						return mineral
 					}
 				})
-				console.log('mineralColourFilter:', mineralColourFilter)
 
+				const lustreFilter = mineralColourFilter.filter(mineral => {
+					if(payload.lustre.length === 0) {
+						return mineral
+					} else if(mineral.lustre !== null && mineral.lustre.includes(payload.lustre.map(colour => colour))) {
+						return mineral
+					}
+				})
 
 				return {
 					...state,
-					results: mineralColourFilter
+					results: lustreFilter
 				}
-			// return {
-			// 	...state,
-			// 	results: state.all.filter(mineral => {
-			// 		if(mineral.mineral_type === payload.mineral_type.toLowerCase() &&
-			// 			 mineral.crystal_form !== null && mineral.crystal_form === payload.crystal_form && 
-			// 			 mineral.mineral_color !== null && mineral.mineral_color.includes(payload.mineral_colour.map(colour => colour))) {
-			// 			return mineral
-			// 		}
-			// 	 })
-			// }
 	
     default:
 			return state;

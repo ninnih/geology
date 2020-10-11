@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 
+
 import './SearchForm.scss';
 import { 
   crystalForm, 
@@ -18,7 +19,7 @@ const SearchForm = () => {
     mineral_type: '',
     mineral_color: [],
     crystal_form: '',
-    lustre: '',
+    lustre: [],
     hardness: ''
   })
 
@@ -43,15 +44,35 @@ const SearchForm = () => {
     })
   }
 
-  const onMultiChange = input => {
+  const onMultiChangeColor = input => {
     const newArray = [];
-    console.log('Input:', input)
-    // Fix so empty input doesn't crash app, conditional here.
+    console.log('Input Color:', input)
     if(input === null) {
-
-      setFormValue({
+       setFormValue({
         ...formValue,
         mineral_color: [],
+      })
+    } else {
+      const selectID = input[0].id;
+
+
+      input.map((value, index) => {
+        return newArray.push(value.value)
+      })
+  
+      setFormValue({
+        ...formValue,
+        [selectID]: newArray
+      })
+    }
+  }
+
+  const onMultiChangeLustre = input => {
+    const newArray = [];
+    console.log('Input:', input)
+    if(input === null) {
+      setFormValue({
+        ...formValue,
         lustre: []
       })
     } else {
@@ -80,10 +101,10 @@ const SearchForm = () => {
       <section className="searchheader">
         <section className="form__wrapper">
           <form onSubmit={onSubmit} className="searchform">
-            <article className="searchform__input searchform__input--center">
+            {/* <article className="searchform__input searchform__input--center">
               <label htmlFor="mineral">Mineral:</label>
               <input type="text" name="mineral" id=""/>
-            </article>
+            </article> */}
             <article className="searchform__input">
               <label htmlFor="mineraltype">Mineral type:</label>
               <select 
@@ -120,7 +141,7 @@ const SearchForm = () => {
                 name="mineralcolor"
                 className="basic-multi-select"
                 classNamePrefix="mineral_colour"
-                onChange={onMultiChange}
+                onChange={onMultiChangeColor}
                 />
                 
             </article>
@@ -132,7 +153,7 @@ const SearchForm = () => {
                 name="lustre"
                 className="basic-multi-select"
                 classNamePrefix="select"
-                onChange={onMultiChange}
+                onChange={onMultiChangeLustre}
                 />
             </article>
             <article className="searchform__input searchform__input--button">
