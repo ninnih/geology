@@ -18,6 +18,7 @@ console.log(payload)
 				}
 
 		case FILTER_MINERALS:
+<<<<<<< HEAD
 				const mineralTypeFilter = state.all.filter(mineral => {
 					if(payload.mineral_type === '') {
 						return mineral
@@ -54,6 +55,23 @@ console.log(payload)
 					...state,
 					results: lustreFilter
 				}
+=======
+			console.log(payload)
+			const filtered = state.all.filter(mineral => {
+				for (let key in payload) {
+					if(mineral[key] === undefined || mineral[key] != payload[key]) {
+						return false
+					} 
+				}
+				return mineral
+			})
+
+			return {
+				...state,
+				results: filtered
+			}
+
+>>>>>>> a0338e0bfa6240deef7da89180b0d3e8d7453b3f
 	
     default:
 			return state;

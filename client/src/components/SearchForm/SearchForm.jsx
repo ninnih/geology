@@ -15,12 +15,21 @@ import { filterMinerals } from '../../js/actions';
 const SearchForm = () => {
   const dispatch = useDispatch();
   const [formValue, setFormValue] = useState({
+<<<<<<< HEAD
     mineral: '',
     mineral_type: '',
     mineral_color: [],
     crystal_form: '',
     lustre: [],
     hardness: ''
+=======
+    // mineral: '',
+    // mineral_type: '',
+    // mineral_colour: [],
+    // crystal_form: '',
+    // lustre: '',
+    // hardness: ''
+>>>>>>> a0338e0bfa6240deef7da89180b0d3e8d7453b3f
   })
 
   const colourOptions = [
