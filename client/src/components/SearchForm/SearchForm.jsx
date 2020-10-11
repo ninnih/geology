@@ -16,7 +16,7 @@ const SearchForm = () => {
   const [formValue, setFormValue] = useState({
     mineral: '',
     mineral_type: '',
-    mineral_colour: [],
+    mineral_color: [],
     crystal_form: '',
     lustre: '',
     hardness: ''
@@ -24,7 +24,7 @@ const SearchForm = () => {
 
   const colourOptions = [
     crystalColour.map((colour, index) => {
-      return ({ value: `${colour}`, label: `${colour}`, id: 'mineral_colour' })
+      return ({ value: `${colour}`, label: `${colour}`, id: 'mineral_color' })
     })
   ];
 
@@ -45,17 +45,29 @@ const SearchForm = () => {
 
   const onMultiChange = input => {
     const newArray = [];
+    console.log('Input:', input)
     // Fix so empty input doesn't crash app, conditional here.
-    const selectID = input[0].id;
+    if(input === null) {
 
-    input.map((value, index) => {
-      return newArray.push(value.value)
-    })
+      setFormValue({
+        ...formValue,
+        mineral_color: [],
+        lustre: []
+      })
+    } else {
+      console.log(input)
+      const selectID = input[0].id;
 
-    setFormValue({
-      ...formValue,
-      [selectID]: newArray
-    })
+
+      input.map((value, index) => {
+        return newArray.push(value.value)
+      })
+  
+      setFormValue({
+        ...formValue,
+        [selectID]: newArray
+      })
+    }
   }
 
   const onSubmit = e => {
@@ -110,6 +122,7 @@ const SearchForm = () => {
                 classNamePrefix="mineral_colour"
                 onChange={onMultiChange}
                 />
+                
             </article>
             <article className="searchform__input">
               <label htmlFor="lustre">Lustre:</label>
