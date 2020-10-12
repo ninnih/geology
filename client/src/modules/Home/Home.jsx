@@ -14,7 +14,7 @@ const Home = () => {
           <h2>Information</h2>
         </section>
         <section className="information">
-          <Fade up>
+          <Fade right>
             <article className="information__item">
               <h3>Something</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis delectus quisquam cum doloremque cupiditate, maiores incidunt tempore, aliquid dicta error rerum quos ullam omnis veniam repellendus! Deleniti, minus debitis! Nisi.</p>

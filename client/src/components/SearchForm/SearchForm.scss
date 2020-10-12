@@ -16,6 +16,10 @@
   &__wrapper {
     width: 40%;
     margin: 0 auto;
+
+    section {
+      margin: 20px 0;
+    }
   }
 }
 
@@ -43,7 +47,8 @@
       button {
         height: 38px;
         padding: 5px 15px;
-        background-color: grey;
+        margin: 20px 0;
+        background-color: #ff4eb5;
         border: none;
         border-radius: 4px;
       }

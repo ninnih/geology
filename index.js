@@ -21,7 +21,6 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.resolve('./client/build')))
 
-
 app.get('/api/minerals', (req, res) => {
     fetch('https://macrostrat.org/api/v2/defs/minerals?all')
     .then(res => res.json())
@@ -31,15 +30,14 @@ app.get('/api/minerals', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// app.get('/api/minerals/:mineral', (req, res) => {
-//   const type = ;
-//   fetch(`https://macrostrat.org/api/defs/minerals?mineral_type=${type}`)
-//   .then(res => res.json())
-//   .then(data => { 
-//     res.status(200).send(data.success.data)
-//   })
-//   .catch(error => console.log(error))
-// })
+app.get('/api/lithology', (req, res) => {
+  fetch('https://macrostrat.org/api/v2/defs/lithologies?all')
+  .then(res => res.json())
+  .then(data => { 
+    res.status(200).send(data.success.data)
+  })
+  .catch(error => console.log(error))
+})
 
 app.get('*', (req, res) => res.sendFile(path.resolve('client/build/index.html')));
 

@@ -17,7 +17,12 @@ const Header = () => {
           </li>
           <li>
             <NavLink to="/search" exact>
-              <h3 className="header__navigation__list__item__text">search</h3>
+              <h3 className="header__navigation__list__item__text">Identify mineral</h3>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/lithology" exact>
+              <h3 className="header__navigation__list__item__text">lithology</h3>
             </NavLink>
           </li>
           <li>

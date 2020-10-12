@@ -35,6 +35,9 @@ const Search = () => {
     <main>
       <SearchForm />
       <section className="wrapper">
+          <section className="search__info">
+            <h3>Found {minerals.length} minerals matching your search</h3>
+          </section>
           <section className="pagination">
             <Pagination
               count={count}

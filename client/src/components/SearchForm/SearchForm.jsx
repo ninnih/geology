@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
-
-
 import './SearchForm.scss';
 import { 
   crystalForm, 
@@ -15,21 +13,12 @@ import { filterMinerals } from '../../js/actions';
 const SearchForm = () => {
   const dispatch = useDispatch();
   const [formValue, setFormValue] = useState({
-<<<<<<< HEAD
     mineral: '',
     mineral_type: '',
     mineral_color: [],
     crystal_form: '',
     lustre: [],
     hardness: ''
-=======
-    // mineral: '',
-    // mineral_type: '',
-    // mineral_colour: [],
-    // crystal_form: '',
-    // lustre: '',
-    // hardness: ''
->>>>>>> a0338e0bfa6240deef7da89180b0d3e8d7453b3f
   })
 
   const colourOptions = [
@@ -55,7 +44,7 @@ const SearchForm = () => {
 
   const onMultiChangeColor = input => {
     const newArray = [];
-    console.log('Input Color:', input)
+
     if(input === null) {
        setFormValue({
         ...formValue,
@@ -63,7 +52,6 @@ const SearchForm = () => {
       })
     } else {
       const selectID = input[0].id;
-
 
       input.map((value, index) => {
         return newArray.push(value.value)
@@ -103,17 +91,15 @@ const SearchForm = () => {
   const onSubmit = e => {
     e.preventDefault()
     dispatch(filterMinerals(formValue))
-    // Only submit none empty strings fix here ?  
   }
 
   return (
       <section className="searchheader">
         <section className="form__wrapper">
+          <section>
+            <h3>Enter information to identify a mineral</h3>
+          </section>
           <form onSubmit={onSubmit} className="searchform">
-            {/* <article className="searchform__input searchform__input--center">
-              <label htmlFor="mineral">Mineral:</label>
-              <input type="text" name="mineral" id=""/>
-            </article> */}
             <article className="searchform__input">
               <label htmlFor="mineraltype">Mineral type:</label>
               <select 

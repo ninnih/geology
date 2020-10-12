@@ -1,2 +1,3 @@
 export const GET_MINERALS = 'GET_MINERALS';
 export const FILTER_MINERALS = 'FILTER_MINERALS';
+export const GET_LITHOLOGY ='GET_LITHOLOGY';
