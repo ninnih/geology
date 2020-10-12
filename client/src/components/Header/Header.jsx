@@ -26,6 +26,11 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/map" exact>
+              <h3 className="header__navigation__list__item__text">map</h3>
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/about" exact>
               <h3 className="header__navigation__list__item__text">about</h3>
             </NavLink>
