@@ -12,14 +12,14 @@ const App = () => {
 
   useEffect(() => {
     const fetchMinerals = async () => {
-      await fetch('http://localhost:8000/api/minerals')
+      await fetch('/api/minerals')
         .then(res => res.json())
         .then(data => dispatch(getMinerals(data)))
     }
     fetchMinerals()
 
     const fetchLithology = async () => {
-      await fetch('http://localhost:8000/api/lithology')
+      await fetch('/api/lithology')
         .then(res => res.json())
         .then(data => dispatch(getLithology(data)))
     }

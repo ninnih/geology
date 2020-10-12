@@ -19,16 +19,7 @@ app.use(bodyParser.json());
 //     res.send('Hello World!')
 // });
 
-app.use(express.static(path.resolve('./client/build')))
-
-app.get('/api/minerals', (req, res) => {
-    fetch('https://macrostrat.org/api/v2/defs/minerals?all')
-    .then(res => res.json())
-    .then(data => { 
-      res.status(200).send(data.success.data)
-    })
-    .catch(error => console.log(error))
-})
+// app.use(express.static(path.resolve('./client/build')))
 
 app.get('/api/lithology', (req, res) => {
   fetch('https://macrostrat.org/api/v2/defs/lithologies?all')
@@ -39,6 +30,17 @@ app.get('/api/lithology', (req, res) => {
   .catch(error => console.log(error))
 })
 
-app.get('*', (req, res) => res.sendFile(path.resolve('client/build/index.html')));
+app.get('/api/minerals', (req, res) => {
+    fetch('https://macrostrat.org/api/v2/defs/minerals?all')
+    .then(res => res.json())
+    .then(data => { 
+      res.status(200).send(data.success.data)
+    })
+    .catch(error => console.log(error))
+})
+
+
+
+// app.get('*', (req, res) => res.sendFile(path.resolve('client/build/index.html')));
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
