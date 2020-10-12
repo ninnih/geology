@@ -11,7 +11,8 @@ import mineralIMG from '../../assets/images/minerals/grant-durr-j7WBHTOIyBA-unsp
 import SearchForm from '../../components/SearchForm/SearchForm';
 
 const Search = () => {
-  let minerals = useSelector(state => state.results);
+  let minerals = useSelector(state => state.mineralReducer.results);
+
   let loading = false;
   if(minerals === undefined) {
     minerals = ['']
