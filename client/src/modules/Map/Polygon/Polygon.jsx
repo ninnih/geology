@@ -4,8 +4,15 @@ import { loadModules } from 'esri-loader';
 const Polygon = (props) => {
 	const [graphic, setGraphic] = useState(null);
 
+	if(props.polygon !== undefined){
+		props.polygon.map(polygon => {
+			console.log(polygon.geometry.coordinates[0][0])
+	})}
+	 
+	
 	useEffect(() => {
 		loadModules(['esri/Graphic']).then(([Graphic]) => {
+	
 			// Create a polygon geometry
 			const polygon = {
 				type: "polygon", 
@@ -164,7 +171,8 @@ const Polygon = (props) => {
 			setGraphic(graphic);
 			
 			props.view.graphics.add(graphic);
-				}).catch((err) => console.error(err));
+			
+			}).catch((err) => console.error(err));
 
 			return function cleanup() {
 				props.view.graphics.remove(graphic);

@@ -4,7 +4,8 @@ import {
   GET_LITHOLOGY,
   FILTER_LITHOLOGY,
   GET_INTERVAL,
-  SEARCH_INTERVAL
+  SEARCH_INTERVAL,
+  GET_POLYGON
 } from '../constants/index';
 
 export const getMinerals = payload => {
@@ -45,6 +46,13 @@ export const getInterval = payload => {
 export const searchInterval = payload => {
   return {
     type: SEARCH_INTERVAL,
+    payload,
+  }
+}
+
+export const getPolygon = payload => {
+  return {
+    type: GET_POLYGON,
     payload,
   }
 }

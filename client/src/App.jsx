@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { getMinerals, getLithology, getInterval } from './js/actions/index';
+import { getMinerals, getLithology, getInterval, getPolygon } from './js/actions/index';
 
 import './App.scss';
 import Header from './components/Header/Header';

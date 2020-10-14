@@ -1,6 +1,7 @@
 import { 
   GET_INTERVAL,
-  SEARCH_INTERVAL
+	SEARCH_INTERVAL,
+	GET_POLYGON
 } from '../constants/index';
 
 const initialState = [];
@@ -30,6 +31,13 @@ const payload = action.payload;
 						era: payload.era
 					},
 				}
+		
+		case GET_POLYGON:
+			console.log(payload)
+			return {
+				...state,
+				polygon: payload
+			}
 	
     default:
 			return state;

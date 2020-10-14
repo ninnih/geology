@@ -3,25 +3,23 @@ import * as ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCss } from 'esri-loader';
 import { Scene } from '@esri/react-arcgis';
+import { getPolygon } from '../../js/actions/index';
 import Polygon from './Polygon/Polygon';
-import { searchInterval } from '../../js/actions';
 import './Map.scss';
 
 loadCss();
 
 const Map = () => {
+  const dispatch = useDispatch();
   const [mapValue, setMapValue] = useState({
     era: '',
     epoch: '',
     period: '',
     coordinates: ''
   })
-  console.log(mapValue)
 
-  const dispatch = useDispatch();
   let interval = useSelector(state => state.intervalReducer.results)
-  // let searchResult = useSelector(state => state.intervalReducer.searchresults)
-  // console.log(searchResult)
+  let polygon = useSelector(state => state.intervalReducer.polygon)
   let loading = true;
 
   if(interval === undefined) {
@@ -49,9 +47,9 @@ const Map = () => {
       },
       body: JSON.stringify(mapValue),
     })
-    
-  // .then(res => res.json())
-  // .then(data => setMapValue({ ...mapValue, era: e.target.id }))
+    fetch('/api/paleogeography')
+      .then(res => res.json())
+      .then(data => dispatch(getPolygon(data.features)))
   }
 
   return (
@@ -61,39 +59,15 @@ const Map = () => {
           style={{ width: '50vw', height: 'calc(100vh - 60px)' }}
           mapProperties={{ basemap: 'satellite' }}
           viewProperties={{
-              center: [59.329323, 18.068581],
-              zoom: 6
+              center: [59.334591, 18.063240],
+              zoom: 3
           }}>
-          <Polygon/>
+          <Polygon polygon={polygon}/>
         </Scene>
         {loading 
         ? <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         : 
         <form onSubmit={onSubmit}>
-          {/* <label htmlFor="">Era</label>
-          <select 
-            name="era" 
-            id="era"
-            value={mapValue.era}
-            onChange={onChange}>
-            {interval.map((interval, index) => {
-              if(interval.int_type === 'era') {
-                return <option key={index} id={interval.name}>{interval.name}</option>
-              }
-            })}
-          </select>
-          <label htmlFor="">Epoch</label>
-          <select 
-            name="epoch" 
-            id="epoch"
-            value={mapValue.epoch}
-            onChange={onChange}>
-            {interval.map((interval, index) => {
-              if(interval.int_type === 'epoch') {
-                return <option key={index} id={interval.name}>{interval.name}</option>
-              }
-            })}
-          </select> */}
           <label htmlFor="">Period</label>
           <select 
             name="period" 

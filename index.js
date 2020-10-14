@@ -19,7 +19,7 @@ let intervalName = '';
 //     res.send('Hello World!')
 // });
 
-// app.use(express.static(path.resolve('./client/build')))
+app.use(express.static(path.resolve('./client/build')))
 
 app.get('/api/lithology', (req, res) => {
   fetch('https://macrostrat.org/api/v2/defs/lithologies?all')
@@ -62,6 +62,6 @@ console.log(intervalName)
   .catch(error => console.log(error))
 })
 
-// app.get('*', (req, res) => res.sendFile(path.resolve('client/build/index.html')));
+app.get('*', (req, res) => res.sendFile(path.resolve('client/build/index.html')));
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
