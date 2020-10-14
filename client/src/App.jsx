@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { getMinerals, getLithology } from './js/actions/index';
+import { getMinerals, getLithology, getInterval } from './js/actions/index';
 
 import './App.scss';
 import Header from './components/Header/Header';
@@ -24,6 +24,13 @@ const App = () => {
         .then(data => dispatch(getLithology(data)))
     }
     fetchLithology()
+
+    const fetchIntervals = async () => {
+      await fetch('/api/intervals')
+        .then(res => res.json())
+        .then(data => dispatch(getInterval(data)))
+    }
+    fetchIntervals()
   }, [])
 
   return (
