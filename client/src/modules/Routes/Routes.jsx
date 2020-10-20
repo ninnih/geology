@@ -5,7 +5,7 @@ import Home from '../Home/Home';
 import About from '../About/About';
 import Search from '../Search/Search';
 import Lithology from '../Lithology/Lithology';
-import Map from '../Map/Map'
+import MapThing from '../Map/Map'
 
 const Routes = (props) => {
 
@@ -15,7 +15,7 @@ const Routes = (props) => {
       <Route exact path='/about' render={(props) => <About {...props}/>}></Route>
       <Route exact path='/search' render={(props) => <Search {...props}/>}></Route>
       <Route exact path='/lithology' render={(props) => <Lithology {...props}/>}></Route>
-      <Route exact path='/map' render={(props) => <Map {...props}/>}></Route>
+      <Route exact path='/map' render={(props) => <MapThing {...props}/>}></Route>
     </Switch>
   );
 }
