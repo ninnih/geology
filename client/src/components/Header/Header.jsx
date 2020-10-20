@@ -26,8 +26,8 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/map" exact>
-              <h3 className="header__navigation__list__item__text">map</h3>
+            <NavLink to="/paleogeography" exact>
+              <h3 className="header__navigation__list__item__text">Paleogeography</h3>
             </NavLink>
           </li>
           <li>

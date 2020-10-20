@@ -15,7 +15,7 @@ const Routes = (props) => {
       <Route exact path='/about' render={(props) => <About {...props}/>}></Route>
       <Route exact path='/search' render={(props) => <Search {...props}/>}></Route>
       <Route exact path='/lithology' render={(props) => <Lithology {...props}/>}></Route>
-      <Route exact path='/map' render={(props) => <MapThing {...props}/>}></Route>
+      <Route exact path='/paleogeography' render={(props) => <MapThing {...props}/>}></Route>
     </Switch>
   );
 }

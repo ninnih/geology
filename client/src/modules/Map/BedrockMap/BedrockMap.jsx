@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCss, loadModules } from 'esri-loader';
-import { getPolygon } from '../../js/actions/index';
-import './Map.scss';
-import BedrockMap from './BedrockMap/BedrockMap'
+import { getPolygon } from '../../../js/actions/index';
+import './BedrockMap.scss';
 
 loadCss();
 
@@ -163,32 +162,9 @@ const MapThing = () => {
     
 
   return (
-    <main className="main--map">
-      {/* <section className="map__wrapper">
-        <BedrockMap/>
-      </section> */}
-      <section className="map__wrapper">
+    <article>
         <div className="webmap" ref={mapRef}/>
-        {loading 
-        ? <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-        : 
-        <form onSubmit={onSubmit}>
-          <label htmlFor="">Period</label>
-          <select 
-            name="period" 
-            id="period"
-            value={mapValue.period}
-            onChange={onChange}>
-            {interval.map((interval, index) => {
-              if(interval.int_type === 'period') {
-                return <option key={index} id={interval.name}>{interval.name}</option>
-              }
-            })}
-          </select>
-          <button>Submit</button>
-        </form>}
-      </section>
-    </main>
+    </article>
   )
 }
 

@@ -2,7 +2,7 @@
 
 .main {
   &--map {
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     margin-top: 60px;
   }
 }
@@ -10,6 +10,7 @@
 .map {
   &__wrapper {
     display: flex;
+    height: 100vh;
   }
 }
 
