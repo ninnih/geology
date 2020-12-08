@@ -25,7 +25,7 @@ const Header = () => {
               <h3 className="header__navigation__list__item__text">lithology</h3>
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/paleogeography" exact>
               <h3 className="header__navigation__list__item__text">Paleogeography</h3>
             </NavLink>
@@ -34,7 +34,7 @@ const Header = () => {
             <NavLink to="/about" exact>
               <h3 className="header__navigation__list__item__text">about</h3>
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </nav> 
     </header>
