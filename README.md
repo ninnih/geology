@@ -3,6 +3,9 @@
 ## Under construction -
 This website is currently under construction. Images and certain text are placeholders. 
 
+- The user can search the macrostrat API.
+- Paginated search results.
+
 ## Overview
 This application is using https://macrostrat.org/ API and arcGIS. 
 It is a personal project I am building simply for fun, practise and my own interest.
